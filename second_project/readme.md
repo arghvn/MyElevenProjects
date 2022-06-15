@@ -16,17 +16,26 @@ delete , deletemovie
 
 there are two types of endpoints slash /movies and /movies/id
 we have to use depending on what we are doing in the sense ,if we are creating
- then obviously /m if we are updating then obviously id is required so it has to be /m/i right then. 
+then obviously /m if we are updating then obviously id is required so it has to be /m/i right then. 
 
- and there are methods and there are getmethods...get fo get all and get by id function and we will use post (another method)
- for create function and we will use put for update  function and we will use delete for delete function.
+and there are methods and there are getmethods...get fo get all and get by id function and we will use post (another method)
+for create function and we will use put for update  function and we will use delete for delete function.
 
- and we wil using postman to test all these endpoints.
+and we wil using postman to test all these endpoints.
 
- what is the rest Api ?
- REST is an "architectural style" or "design template" for APIs.
-  Various applications and web pages are used to obtain information about various sources.
-  Where does this data come from? This data is received from servers and applications are connected to web servers to receive and send data.
+what is the rest Api ?
+REST is an "architectural style" or "design template" for APIs.
+Various applications and web pages are used to obtain information about various sources.
+Where does this data come from? This data is received from servers and applications are connected to web servers to receive and send data.
 A REST API is a way to connect two computer systems, such as a web browser and servers, via HTTP.
 API‌ is the title for the "Application Programming Interface".
-  An API is an intermediary that allows communication between two applications.
+An API is an intermediary that allows communication between two applications.
+
+
+log uses for searching errors to connecting server
+encoding/json uses for encoding
+math/rand : imagine the user adds a new  movie to this movie server so we need to create a new ID for it and
+that will be created using math/rand 
+net/http allows to create a server in GO 
+strconv = string conversion 
+The index created with math / rand will be an integer and needs to be converted to a string.
