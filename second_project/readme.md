@@ -7,6 +7,7 @@
  Each path will have a function that uses methods to display a movie
  
  functions for each routes :
+ We define these five functions in the main section.
 
 get all , getmovies
 get by id , getmovie
