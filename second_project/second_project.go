@@ -3,66 +3,73 @@ package main
 // go_movies_crud
 // gorillamux We install this package and use it
 
-import(
+import (
 	"fmt"
 	"log"
-	"encoding/json"
-	"math/rand"
 	"net/http"
-	"strconv"
+
 	"github.com/gorilla/mux"
 )
 
 // See Redemy
-// The reason that libraries give an error immediately after definition is that we imported them but they were not used
+// The reason that libraries give an error immediately after definition
+// is that we imported them but they were not used
 
 // define two structs , types = movie and director
 
-
 // movies and directors are related, meaning that every film has a director
-// movies can have other features that we define in its structure. 
+// movies can have other features that we define in its structure.
 
-type Movie struct{
-     ID string "json:ID"
-	 Isbn string "json:Isbn"
-	 title string "json:title"
-	 Director *Director "json:Director"
+type Movie struct {
+	ID       string    "json:ID"
+	Isbn     string    "json:Isbn"
+	title    string    "json:title"
+	Director *Director "json:Director"
 
+	// Isbn is the unique index of each movie
+	// title is the The title of each movie
 
-	 // Isbn is the unique index of each movie
-	 // title is the The title of each movie
+	// *Director is a pointer that means if i create a struct call director,
+	// it will be associated to movie struct
 
-	// *Director is a pointer that means if i create a struct call director, it will be associated to movie struct 
-
-// The personal information of each director is placed in the relevant structure
-// Note that to avoid complexity, we define that each film has only one director.
+	// The personal information of each director is placed in the relevant structure
+	// Note that to avoid complexity, we define that each film has only one director.
 
 }
 
-
-
-
-type Director struct{
+type Director struct {
 	Firstname string "json:Firstname"
-	Lastname string "json:Lastname"
-
-
+	Lastname  string "json:Lastname"
 }
 
+// We need to define a variable that is a movie slice.
 
- // We need to define a variable that is a movie slice.
-
- var movies []Movie  
-
- func main(
+var movies []Movie
 
 
-	
+
+func main() {
 	r := mux.NewRouter()
-	r.HandleFunc()
+	movies = append(movies, movie{ID: "1", Isbn:"438227", Title :"Movie one", Director : &Director(Firstname:"John", Lastname:"Doe")})
+	movies = append(movies, movie{ID: "2", Isbn:"454555", Title :"Movie two", Director : &Director(Firstname:"Steve", Lastname:"smith")})
+	// we use &Director because we want the reference object(the reference of the address of director) 
+	// append movie to movies
 	// r.HandleFunc() we will have five functions here
-
 	// r is a router
-
 	// NewRouter is a function inside mux library
- )
+	// first route is the movies route
+	r.HandleFunc("/movies", getMovies).Methods("GET")
+	r.HandleFunc("/movies/{id}", getMovie).Methods("GET")
+	r.HandleFunc("/movies", createMovie).Methos("POST")
+	r.HandleFunc("/movies/{id}", updatemovie).Methods("PUT")
+	r.HandleFunc("/movies/{id}", deletemovie).Methods("DELETE")
+	// To set up the server, we say:
+	fmt.Printf("starting server at port 8000\n")
+	// i, going to log out system if the server doesnt start
+	log.Fatal(http.ListenAndServe(":8000", r))
+}
+
+//  when we go to our postman and we will hit the server , when we hit the  API/movies and we want to get
+//  all movies (in the beginning there wont be any movies so that we want to have at least two movies)
+//  then in above we take movies struct, slice of movies
+//  im going to append a couple of movies to it.
