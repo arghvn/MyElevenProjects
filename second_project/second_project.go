@@ -48,8 +48,20 @@ var movies []Movie
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 func main() {
 	r := mux.NewRouter()
+	// at least two movie is enough to find how server working
 	movies = append(movies, movie{ID: "1", Isbn:"438227", Title :"Movie one", Director : &Director(Firstname:"John", Lastname:"Doe")})
 	movies = append(movies, movie{ID: "2", Isbn:"454555", Title :"Movie two", Director : &Director(Firstname:"Steve", Lastname:"smith")})
 	// we use &Director because we want the reference object(the reference of the address of director) 
