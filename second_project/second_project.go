@@ -47,6 +47,29 @@ type Director struct {
 var movies []Movie
 
 
+func getMovies(w http.ResponseWriter, r *http.Request)
+// we are passing the request a pointer
+// we will send the request from our postman to this function and w is the responsewriter
+// when we send a response from this function , it will be w
+// we want to set the content type as json....it is struct
+W.Header().set("Content-Type, application/json")
+json.NewEncoder(w).Encode(movies)
+// the response that we want to send to it , we want to encode it into json 
+// and we want to pass the complete movies slice that we have in var movies []Movie
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
