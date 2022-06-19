@@ -66,11 +66,21 @@ json.NewEncoder(w).Encode(movies)
 	// range over movies...we got params ,params is the id that we sent as a request this funnction and get we access to particular movie 
 	for index, item := range movies {
 
-		if item.ID == params["id"]
+		if item.ID == params["id"]{
+		movies = append(movies[:inedx], movies[index+1:]...)
+		break
 	}
  }
+}
+// r is the request that the user sends
+// mux is the package that we are using for creating this routes and vars is inside mux which help us to get access to the request(params)
+// All the videos are on one slide and we use them in the loop to check them one by one
+// if we get a particular movie from the slice of the movies , we must find it and encode into json and send it to the front end or to postman
 
-
+func getmovie(w http.ResponseWriter, r *http.request){
+w.Header().set("Content-type", "application/json")
+params := mux.vars(r)
+}
 
 
 
