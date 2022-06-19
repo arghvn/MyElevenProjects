@@ -47,7 +47,7 @@ type Director struct {
 var movies []Movie
 
 
-func getMovies(w http.ResponseWriter, r *http.Request)
+func getMovies(w http.ResponseWriter, r *http.Request){
 // we are passing the request a pointer
 // we will send the request from our postman to this function and w is the responsewriter
 // when we send a response from this function , it will be w
@@ -56,6 +56,30 @@ W.Header().set("Content-Type, application/json")
 json.NewEncoder(w).Encode(movies)
 // the response that we want to send to it , we want to encode it into json 
 // and we want to pass the complete movies slice that we have in var movies []Movie
+}
+// when we want to delete a movie , we will pass an id of the movie
+ func deletemovie(w http.ResponseWriter, r *http.Request){
+	w.Header().set("content-type", "application/json")
+	// params like id that pass by postman.it is part of the request and mux
+	// by writting below line we have access to id 
+	params := mux.vars(r)
+	// range over movies...we got params ,params is the id that we sent as a request this funnction and get we access to particular movie 
+	for index, item := range movies {
+
+		if item.ID == params["id"]
+	}
+ }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
