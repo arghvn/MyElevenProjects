@@ -40,3 +40,5 @@ that will be created using math/rand
 net/http allows to create a server in GO 
 strconv = string conversion 
 The index created with math / rand will be an integer and needs to be converted to a string.
+
+
