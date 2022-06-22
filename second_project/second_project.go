@@ -85,37 +85,6 @@ params := mux.vars(r)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 func main() {
 	r := mux.NewRouter()
 	// at least two movie is enough to find how server working
