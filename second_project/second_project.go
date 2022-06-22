@@ -4,6 +4,7 @@ package main
 // gorillamux We install this package and use it
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -80,10 +81,13 @@ json.NewEncoder(w).Encode(movies)
 func getmovie(w http.ResponseWriter, r *http.request){
 w.Header().set("Content-type", "application/json")
 params := mux.vars(r)
+// using for loop without index
+for _, item := range movies {
+	if item.ID == params["id"]
+	    json.NewEncoder(w).Encode(item)
 }
-
-
-
+}
+// inside params i have passed an id that use for compare each element in slice(movies) and if item.ID was equal to id ,do next command above(json...)
 
 func main() {
 	r := mux.NewRouter()
