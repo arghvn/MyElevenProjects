@@ -42,3 +42,6 @@ strconv = string conversion
 The index created with math / rand will be an integer and needs to be converted to a string.
 
 
+postman :
+Postman makes it very easy for us to test, execute, and test written WebAPI code and methods.
+In the programming environment, when we implement a Web API to test it in the same environment, we have to write client-side code that we can check its output, that is, we have to simulate the original code that we are going to write, but always do This is not cost-effective for us in terms of time, and we like to see the output of our program very quickly, and when we change our code, we can easily see the output and the result of our changes. Also, sometimes testing the output by the main program is a difficult and challenging task. So having an interface software for this is very efficient and using it will help us.
