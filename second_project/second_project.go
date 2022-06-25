@@ -7,7 +7,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"math/rand"
 	"net/http"
+	"strconv"
 
 	"github.com/gorilla/mux"
 )
@@ -46,8 +48,6 @@ type Director struct {
 // We need to define a variable that is a movie slice.
 
 var movies []Movie
-
-
 func getMovies(w http.ResponseWriter, r *http.Request){
 // we are passing the request a pointer
 // we will send the request from our postman to this function and w is the responsewriter
@@ -72,6 +72,7 @@ json.NewEncoder(w).Encode(movies)
 		break
 	}
  }
+ json.NewEncoder(w).Encode(movies)
 }
 // r is the request that the user sends
 // mux is the package that we are using for creating this routes and vars is inside mux which help us to get access to the request(params)
@@ -88,7 +89,47 @@ for _, item := range movies {
 }
 }
 // inside params i have passed an id that use for compare each element in slice(movies) and if item.ID was equal to id ,do next command above(json...)
-
+func createmovie(w http.ResponseWriter, r *http.request){
+	w.Header().Set("content-type", "application/json")
+	var movie Movie
+	// a variable by name movie and type Movie
+	_ = json.NewDecoder(r.body).Decode(&movie)
+	movie.ID = strconv.Itoa(rand.Intn(100000000))
+	movies = append(movies, movie)
+	sfon.NewEncoder(w).Encode(movie)
+	// we use rand for assign id to movie created
+	// Intn is a function in random pacakge for between 1 and a number in ()
+    // Itoa is a funcion
+	// using strconv to convert the id created in rand to string
+	func UpdateMovie (w http.http.ResponseWriter, r *http.Request){
+		// set json content type
+		w.Header().set("Content-Type", "application/json")
+		// params
+		params := mux.Vars(r)
+		// loop over the movies ,range 
+		// delete the movie with the id that you have been sent 
+	// add a new movie - the movie that we send in the body of postman
+	 for index, item := range movies{
+		if item.ID == params["id"]{
+		movies = append(movies[:index], movies[indeindex+1:]...)
+		var movie Movie
+		_*json.NewDecoder(r.Body).Decode(&movie)
+		movie.ID = params["id"]
+		movies = append(movies, movie)
+		json.NewEncoder(w).Encode(movie)
+        return
+	 }
+	}
+	}
+	// in UpdateMovie function we will pass an id, we will get id in params in mux and vars
+	// in UpdateMovie function we at first delete a movie and then create a new id for it
+	// the stages in this function instead of really updating(instead of updating a element in databasewe are just 
+	// deleting it and then just adding a new element from the body that you are sending) : 
+	// set json content type , params , loop over the movies ,range , delete the movie with the id that you have been sent ,
+	// add a new movie - the movie that we send in the body of postman
+	
+}
+// while creating a movie we will sen sth in the body ,we will send an entire movie to the body in postman and we must decode body
 func main() {
 	r := mux.NewRouter()
 	// at least two movie is enough to find how server working
@@ -115,3 +156,6 @@ func main() {
 //  all movies (in the beginning there wont be any movies so that we want to have at least two movies)
 //  then in above we take movies struct, slice of movies
 //  im going to append a couple of movies to it.
+
+// By entering go build and then go run in the terminal, the server will now start up and ask us for access to the firewall
+// postman intro
