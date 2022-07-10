@@ -32,3 +32,6 @@ so in terminal , cd third project , go mod init github.com/arghvn/main.go , go g
  go get "github.com/gorilla/mux"
 
  route is a set of commands to find way in project
+
+ 
+GORM is a developer-friendly ORM(ORM  is An object-relational mapper provides an object-oriented layer between relational databases and object-oriented programming languages without having to write SQL queries. It standardizes interfaces reducing boilerplate and speeding development time) created by Jinzhu Zhang and with more than 19,000 stars on GitHub, has great community support and easy to follow documentation. GORM provides CRUD operations and can also be used for the initial migration and creation of the database schema.s
