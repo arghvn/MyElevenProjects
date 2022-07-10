@@ -26,3 +26,7 @@ delete , book/bookid , delete book
 
 the first parameters above are method
 the third parameters above are controllers function
+
+building bookstrore management system
+so in terminal , cd third project , go mod init github.com/arghvn/main.go , go get "github.com/jinzhu/gorm" , go get "github.com/jinzhu/gorm/dialects/mysql"
+ go get "github.com/gorilla/mux"
