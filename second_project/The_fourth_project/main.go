@@ -1,7 +1,12 @@
 package main
 
 import (
+	"context"
+	"fmt"
+	"log"
 	"os"
+    "strconv"
+	"github.com/shomalil/slacker"
 )
 
 // import (
@@ -13,7 +18,14 @@ import (
 // )
 
 func PrintCommandEvents(analyticsChannel <-chan *slacker.CommandEvent) {
-
+	for event := range analyticsChannel {
+		fmt.Println("command events")
+		fmt.Println(event.TimeStamp)
+		fmt.Println(event.Command)
+		fmt.Println(event.Parameters)
+		fmt.Println(event.Event)
+		fmt.Println()
+	}
 }
 
 func main() {
@@ -24,4 +36,30 @@ func main() {
 	bot := Slacker.NewCilent(os.Getenv("SLACK_BOT_TOKEN"), os.Getenv("SLACK_APP_TOKEN"))
 
 	go PrintCommandEvents(bot.CommandEvents())
+
+	bot.Command("my yob is <year>, &slacker.CommandDefinition"){
+		// when user says my yob is <year> it is param
+		Description: "yob calculator",
+		Example: "my yob is 2020",
+		Handler: func(botCtx slacker.BotContext, request slacker.Request, response slacker.ResponseWriter)
+		    year := request.Param("year")
+			yob, err := strconv.Atoi(year)
+			if err != nil {
+				println("error")
+			}
+			age := 2022-yob
+	}
+
+	ctx, cancel := context.WithCancel(ctx)
+	// ctx related to context
+	defer cancel()
+
+	// Why do we use defer?
+	// We usually use defer to close or deallocate resources.
+	// A surrounding function executes all deferred function calls before it returns, even if it panics.
+	// If you just place a function call at the end of a surrounding function, it is skipped when panic happens.
+	err := bot.Listen(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
