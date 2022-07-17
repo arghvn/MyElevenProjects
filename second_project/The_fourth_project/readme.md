@@ -10,3 +10,7 @@ messages.channel and messages.mpin ...
 if we use a lot of this properties , an error reduce in our app
 
 another event chat:write (send messages) , chat:write:public (send messages to channles) , channels:read (view basic info about public channels in a workspace) ,im:read (view basic info about direct messages that age-bot has been added to) ,im:write (start direct messages with people) ,mpim:read (view basic info about group direct messages that age-bot has been added to) , mpim:write (start group direct messages with people)
+
+so install the workspace and the bot installed in my worksap
+now we have bot user oath token to access this workspace
+
