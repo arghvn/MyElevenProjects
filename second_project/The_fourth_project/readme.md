@@ -14,3 +14,7 @@ another event chat:write (send messages) , chat:write:public (send messages to c
 so install the workspace and the bot installed in my worksap
 now we have bot user oath token to access this workspace
 
+after write bot code in main.go file we go to slack channel and in terminal(IDE) we write go run main.go for connecting to slack with socket mode
+after connecting in slack channel we write age bot 
+and write my yob is 1999 
+oh it says your age is 23 correctly
