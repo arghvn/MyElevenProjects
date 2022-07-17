@@ -48,6 +48,8 @@ func main() {
 				println("error")
 			}
 			age := 2022-yob
+			r := fmt.Sprint("age is %d", age)
+			response.Reply(r)
 	}
 
 	ctx, cancel := context.WithCancel(ctx)
