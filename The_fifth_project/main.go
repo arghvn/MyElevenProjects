@@ -35,3 +35,5 @@ func main() {
 		fmt.Printf("Name: %s, URL:%s\n", file.Name, file.URL)
 	}
 }
+
+// we can uplode a file to a channel by using slack
