@@ -79,3 +79,10 @@ func checkDomain(domain string) {
 
 	fmt.Printf(%v, %v, %v, %v, %v, %v, domaain,hasMX, hasSPf, spfrespfRecord, hasDMhasDMARC, dmadmarRecord)
 }
+
+
+// test in terminal 
+// it show us first statement that we talk in the past and we enter mailchimp.com (a website for email tools)
+// after a moments it show us the next statement(true and false)
+// and we can find the email is correct or not
+// if this statement was same the statement in readme file it means every thing is fine
